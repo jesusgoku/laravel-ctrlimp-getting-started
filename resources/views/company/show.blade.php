@@ -6,8 +6,11 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    {{ $company->account->name }} / Company: {{ $company->name }}
-                    <a href="{{ route('commitment.create', ['company' => $company->id]) }}" class="btn btn-primary float-right">Create commitment</a>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('account.show', ['account' => $company->account->id]) }}">{{ $company->account->name }}</a></li>
+                        <li class="breadcrumb-item">{{ $company->name }}</li>
+                        <a href="{{ route('commitment.create', ['company' => $company->id]) }}" class="btn btn-primary btn-sm ml-auto">Create commitment</a>
+                    </ol>
                 </div>
                 <ul class="list-group list-group-flush">
                     @foreach($company->commitments as $commitment)

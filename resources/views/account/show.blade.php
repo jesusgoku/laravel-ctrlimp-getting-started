@@ -6,8 +6,10 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    Account: {{ $account->name }}
-                    <a href="{{ route('company.create', ['account' => $account->id ])}}" class="btn btn-primary float-right">Create company</a>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">{{ $account->name }}</li>
+                        <a href="{{ route('company.create', ['account' => $account->id ])}}" class="btn btn-primary btn-sm ml-auto">Create company</a>
+                    </ol>
                 </div>
                 <ul class="list-group list-group-flush">
                     @foreach($account->companies as $company)
