@@ -34,3 +34,9 @@ Route::post('/companies/{company}/commitments', 'Api\CommitmentController@store'
 Route::get('/commitments/{commitment}', 'Api\CommitmentController@show')->name('commitment.show');
 Route::patch('/commitments/{commitment}', 'Api\CommitmentController@update')->name('commitment.update');
 Route::delete('/commitments/{commitment}', 'Api\CommitmentController@destroy')->name('commitment.destroy');
+
+Route::get('/commitments/{commitment}/commitments-files', 'Api\CommitmentFileController@index')->name('commitmentFile.index');
+Route::post('/commitments/{commitment}/commitments-files', 'Api\CommitmentFileController@store')->name('commitmentFile.store');
+Route::get('/commitments-files/{commitment}', 'Api\CommitmentFileController@show')->name('commitmentFile.show');
+Route::patch('/commitments-files/{commitment}', 'Api\CommitmentFileController@update')->name('commitmentFile.update');
+Route::delete('/commitments-files/{commitment}', 'Api\CommitmentFileController@destroy')->name('commitmentFile.destroy');
