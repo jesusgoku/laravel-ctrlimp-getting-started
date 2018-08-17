@@ -67,7 +67,13 @@ class LoginController extends Controller
 
         $this->clearLoginAttempts($request);
 
-        return $this->guard()->user()->createToken('AccessToken')->accessToken;
+        $user = $this->guard()->user();
+        $accessToken = $user->createToken('AccessToken');
+
+        return array_merge(
+            $user->toArray(),
+            ['access_token' => $accessToken->accessToken]
+        );
     }
 
     /**
