@@ -12,6 +12,11 @@ use Illuminate\Http\Response;
 
 class AccountController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+    
     public function index()
     {
         return Account::paginate();
